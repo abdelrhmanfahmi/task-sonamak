@@ -33,6 +33,11 @@ class UserController extends Controller
         return response()->json(['message' => 'User Saved Successfully'] , 201);
     }
 
+    public function show(User $user)
+    {
+        return UserResource::make($user);
+    }
+
     public function update(UpdateUserRequest $request , $id)
     {
         $data = $request->validated();
